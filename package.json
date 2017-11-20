@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=production node index",
+    "dev": "NODE_ENV=development DEBUG=boilerplate nodemon index.js",
+    "prod": "NODE_ENV=production PORT=8080 DEBUG=boilerplate node index",
+    "build": "webpack --stats --config ./webpack/prod.config.js",
+    "lint": "eslint index.js app webpack config",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vladimir Vujosevic",
   "license": "MIT",
   "dependencies": {
-    "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
     "compression": "^1.7.1",
     "debug": "^3.1.0",
