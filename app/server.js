@@ -1,5 +1,5 @@
 import express from express;
-import import compression from "compression";
+import compression from "compression";
 import bodyParser from 'body-parser';
 import cookieParser from "cookie-parser";
 import path from 'path';
