@@ -67,7 +67,7 @@ module.exports = (env = {}) => {
     node,
     externals,
     output: {
-      path: PATHS.compiled,
+      path: PATHS.build,
       filename: '[name].dev.js',
       publicPath: PATHS.public,
     },
