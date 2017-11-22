@@ -1,4 +1,5 @@
 import BaseStore from 'fluxible/addons/BaseStore';
+import routeStore from './route-store';
 
 const GLOBAL_ERROR = 'applicationStore/globalError';
 
@@ -21,8 +22,14 @@ class ApplicationStore extends BaseStore {
     this.error = null;
   }
 
-  handleNavigateSuccess() {
+  handleNavigateSuccess(currentRoute) {
     this.error = null;
+    this.dispatcher.waitFor(routeStore, () => {
+      if (currentRoute && currentRoute.title) {
+        this.pageTitle = currentRoute.title;
+        this.emitChange();
+      }
+    });
     this.emitChange();
   }
 

@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { handleHistory } from 'fluxible-router';
 import { provideContext, connectToStores } from "fluxible-addons-react";
 
+import Nav from '../components/Nav';
+
+// Wrap Root with the fluxible context.
 @provideContext
+
+// Wrap with fluxible-router's history handler (required for routing)
+// This also passes `currentRoute` as prop to the component
 @handleHistory
 @connectToStores(['ApplicationStore'], context => ({
   error: context.getStore('ApplicationStore').getGlobalError(),
@@ -20,8 +26,8 @@ export default class Main extends Component {
         statusCode: PropTypes.number.isRequired,
         message: PropTypes.string.isRequired
       }),
-      error: React.PropTypes.object,
-      pageTitle: React.PropTypes.string,
+      error: PropTypes.object,
+      pageTitle: PropTypes.string,
     }
   }
 
@@ -58,7 +64,7 @@ export default class Main extends Component {
     return (
       <div>
         <Helmet title={this.props.pageTitle} />
-        <Nav />
+        <Nav currentRoute={currentRoute} />
         {content}
       </div>
     )
