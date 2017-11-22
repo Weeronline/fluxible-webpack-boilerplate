@@ -23,7 +23,7 @@ module.exports = (env = {}) => {
       path: PATHS.build,
       filename: '[name].js',
     },
-    module: { rules: rules({ production: true, browser: false }) },
+    module: { rules: rules({ production: true, browser: false }), noParse: [/aws-sdk/] },
     resolve,
     plugins: plugins({ production: true, browser: false }),
   };
@@ -39,7 +39,7 @@ module.exports = (env = {}) => {
       publicPath: PATHS.public,
       chunkFilename: '[id].chunk.js',
     },
-    module: { rules: rules({ production: false, browser: true }) },
+    module: { rules: rules({ production: false, browser: true }), noParse: [/aws-sdk/] },
     resolve,
     plugins: plugins({ production: false, browser: true })
   };

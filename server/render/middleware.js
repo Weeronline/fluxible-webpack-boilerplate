@@ -7,7 +7,7 @@ import { navigateAction } from "fluxible-router";
 function renderApp(req, res, context, next) {
   try {
     // dehydrate the app and expose its state
-    const state = "window.__INITIAL_STATE__=" + serialize(app.dehydrate(context)) + ";";
+    const state = "window.App=" + serialize(app.dehydrate(context)) + ";";
     const Root = app.getComponent();
   } catch (e) {
     next(e);

@@ -6,8 +6,7 @@
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node build/server.js",
     "dev": "NODE_ENV=development DEBUG=boilerplate nodemon index.js",
-    "prod": "NODE_ENV=production PORT=8080 DEBUG=boilerplate node index",
-    "build": "webpack --stats --config ./webpack/prod.config.js",
+    "build": "npm run clean && cross-env NODE_ENV=production npm run webpack -- --env.browser && cross-env NODE_ENV=production npm run webpack -- --env.server",
     "build:dev": "cross-env NODE_ENV=development npm run webpack -- --env.server",
     "clean": "rimraf public && rimraf compiled",
     "webpack": "webpack --colors --display-error-details --config ./webpack/webpack.config.js",
