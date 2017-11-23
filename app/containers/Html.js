@@ -11,9 +11,9 @@ export default function Html(props) {
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
       </head>
       <body>
-        <div id="app" dangerouslySetInnerHTML={{ __html: props.markup }}></div>
+        <div id="content" dangerouslySetInnerHTML={{ __html: props.markup }}></div>
         <script dangerouslySetInnerHTML={{ __html: props.state }}></script>
-        <script src={'/public/js/' + props.clientFile}></script>
+        <script src={'/public/assets/' + props.clientFile}></script>
       </body>
     </html>
   );

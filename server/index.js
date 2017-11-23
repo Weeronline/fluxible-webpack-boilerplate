@@ -55,27 +55,28 @@ server.use((req, res, next) => {
   }, (err) => {
     if (err) {
       if (err.statusCode && err.statusCode === 404) {
-        // Pass through to next middleware
-        next();
-      } else {
-        next(err);
-
-        const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
-        const markup = ReactDOM.renderToString(createElementWithContext(context));
-
-        const htmlElement = React.createElement(HtmlComponent, {
-          clientFile: ENV === 'production' ? 'main.min.js' : 'main.js',
-          context: context.getComponentContext(),
-          state: exposed,
-          markup: markup
-        });
-
-        const html = ReactDOM.renderToStaticMarkup(htmlElement);
-        res.type('html');
-        res.write('<!DOCTYPE html>' + html);
-        res.end();
-        return;
+      // Pass through to next middleware
+      res.status(err.statusCode);
+      next();
       }
+    } else {
+      next(err);
+
+      const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
+      const markup = ReactDOM.renderToString(createElementWithContext(context));
+
+      const htmlElement = React.createElement(HtmlComponent, {
+        clientFile: ENV === 'production' ? 'app.min.js' : 'app.js',
+        context: context.getComponentContext(),
+        state: exposed,
+        markup: markup
+      });
+
+      const html = ReactDOM.renderToStaticMarkup(htmlElement);
+      res.type('html');
+      res.write('<!DOCTYPE html>' + html);
+      res.end();
+      return;
     }
   });
 });
