@@ -7,6 +7,8 @@ class HomeContainer extends Component {
       <div id="home-container">
         <h2>Home</h2>
         <p>Welcome to the site!</p>
+        <p> Hey awesome site</p>
+        <p> Hey awesomer site</p>
       </div>
     );
   }
