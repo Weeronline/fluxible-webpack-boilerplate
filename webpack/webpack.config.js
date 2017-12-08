@@ -1,3 +1,4 @@
+const nodeExternals = require('webpack-node-externals');
 const PATHS = require('./paths');
 const rules = require('./rules');
 const plugins = require('./plugins');
@@ -13,25 +14,12 @@ module.exports = (env = {}) => {
   const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
   const node = { __dirname: true, __filename: true };
 
-  const prodServerRender = {
-    devtool: 'source-map',
-    context: PATHS.app,
-    entry: { server: '../server/index' },
-    target: 'node',
-    node,
-    output: {
-      path: PATHS.build,
-      filename: '[name].js',
-    },
-    module: { rules: rules({ production: true, browser: false }), noParse: [/aws-sdk/] },
-    resolve,
-    plugins: plugins({ production: true, browser: false }),
-  };
-
   const prodBrowserRender = {
     devtool: 'cheap-module-source-map',
     context: PATHS.app,
-    entry: { app: ['./client'] },
+    entry: {
+      bundle: ['./client'],
+    },
     node,
     output: {
       path: PATHS.assets,
@@ -39,15 +27,17 @@ module.exports = (env = {}) => {
       publicPath: PATHS.public,
       chunkFilename: '[id].chunk.js',
     },
-    module: { rules: rules({ production: false, browser: true }), noParse: [/aws-sdk/] },
+    module: { rules: rules({ production: false, browser: true }) },
     resolve,
     plugins: plugins({ production: false, browser: true })
   };
 
   const devBrowserRender = {
-    devtool: 'eval',
+    devtool: 'eval-source-map',
     context: PATHS.app,
-    entry: { app: ['./client', hotMiddlewareScript] },
+    entry: {
+      bundle: ['./client', hotMiddlewareScript]
+    },
     node,
     output: {
       path: PATHS.assets,
@@ -57,6 +47,35 @@ module.exports = (env = {}) => {
     module: { rules: rules({ production: false, browser: true }) },
     resolve,
     plugins: plugins({ production: false, browser: true })
+  };
+
+  const prodServerRender = {
+    devtool: 'source-map',
+    context: PATHS.app,
+    entry: {
+      server: '../server/index'
+    },
+    target: 'node',
+    externals: [nodeExternals()],
+    node,
+    output: {
+      path: PATHS.build,
+      filename: '[name].js',
+    },
+    module: { rules: rules({ production: true, browser: false }) },
+    resolve,
+    plugins: plugins({ production: true, browser: false }),
+    stats: {
+      performance: true,
+      source: true,
+      warnings: true,
+      version: true,
+      modules: true,
+      errors: true,
+      errorDetails: true,
+      colors: true,
+      timings: true,
+    }
   };
 
   const devServerRender = {

@@ -66,7 +66,8 @@ server.use((req, res, next) => {
       const markup = ReactDOM.renderToString(createElementWithContext(context));
 
       const htmlElement = React.createElement(HtmlComponent, {
-        clientFile: ENV === 'production' ? 'app.min.js' : 'app.js',
+        clientFile: ENV === 'production' ? 'bundle.min.js' : 'bundle.js',
+        clientVendorFile: ENV === 'production' ? 'vendor.min.js' : 'vendor.js',
         context: context.getComponentContext(),
         state: exposed,
         markup: markup
@@ -81,6 +82,5 @@ server.use((req, res, next) => {
   });
 });
 
-//app.get('*', renderMiddleware);
 
 server.listen(server.get('port'));

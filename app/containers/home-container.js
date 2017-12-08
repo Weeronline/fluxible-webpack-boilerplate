@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class HomeContainer extends Component {
   render () {
@@ -9,6 +8,8 @@ class HomeContainer extends Component {
         <p>Welcome to the site!</p>
         <p> Hey awesome site</p>
         <p> Hey awesomer site</p>
+        <p> uber awesome</p>
+        <p> Extra awesome</p>
       </div>
     );
   }

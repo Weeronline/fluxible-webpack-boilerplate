@@ -8,7 +8,7 @@ export default function Html(props) {
         <meta charSet="utf-8" />
         <title>{props.context.getStore(ApplicationStore).getPageTitle()}</title>
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
+      {/*  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" /> */}
       </head>
       <body>
         <div id="content" dangerouslySetInnerHTML={{ __html: props.markup }}></div>
