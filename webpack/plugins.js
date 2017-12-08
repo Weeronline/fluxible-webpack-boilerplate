@@ -7,11 +7,21 @@ module.exports = ({ production = false, browser = false } = {}) => {
   const compress = { warnings: false };
   const compileTimeConstantForMinification = { __PRODUCTION__: JSON.stringify(production) };
 
+  const commonPlugins = [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      filename: 'vendor.js',
+      minChunks (module) {
+          return module.context && module.context.indexOf('node_modules') >= 0;
+      }
+    }),
+  ]
+
   if (!production && !browser) {
     return [
       new webpack.EnvironmentPlugin(['NODE_ENV']),
       new webpack.DefinePlugin(compileTimeConstantForMinification),
-      new webpack.BannerPlugin(bannerOptions)
+      new webpack.BannerPlugin(bannerOptions),
     ];
   }
   if (!production && browser) {
@@ -19,7 +29,8 @@ module.exports = ({ production = false, browser = false } = {}) => {
       new webpack.EnvironmentPlugin(['NODE_ENV']),
       new webpack.DefinePlugin(compileTimeConstantForMinification),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+      ...commonPlugins
     ];
   }
   if (production && !browser) {
@@ -41,7 +52,8 @@ module.exports = ({ production = false, browser = false } = {}) => {
       new webpack.optimize.UglifyJsPlugin({ compress }),
       new ManifestPlugin({
         fileName: 'manifest.json'
-      })
+      }),
+      ...commonPlugins
     ];
   }
   return [];
