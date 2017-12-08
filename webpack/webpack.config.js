@@ -4,6 +4,7 @@ const rules = require('./rules');
 const plugins = require('./plugins');
 const externals = require('./externals');
 const resolve = require('./resolve');
+const stats = require('./stats');
 
 module.exports = (env = {}) => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -29,6 +30,7 @@ module.exports = (env = {}) => {
     },
     module: { rules: rules({ production: false, browser: true }) },
     resolve,
+    stats,
     plugins: plugins({ production: false, browser: true })
   };
 
@@ -46,6 +48,7 @@ module.exports = (env = {}) => {
     },
     module: { rules: rules({ production: false, browser: true }) },
     resolve,
+    stats,
     plugins: plugins({ production: false, browser: true })
   };
 
@@ -65,17 +68,7 @@ module.exports = (env = {}) => {
     module: { rules: rules({ production: true, browser: false }) },
     resolve,
     plugins: plugins({ production: true, browser: false }),
-    stats: {
-      performance: true,
-      source: true,
-      warnings: true,
-      version: true,
-      modules: true,
-      errors: true,
-      errorDetails: true,
-      colors: true,
-      timings: true,
-    }
+    stats,
   };
 
   const devServerRender = {
@@ -92,6 +85,7 @@ module.exports = (env = {}) => {
     },
     module: { rules: rules({ production: false, browser: false }) },
     resolve,
+    stats,
     plugins: plugins({ production: false, browser: false })
   };
 
