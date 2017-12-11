@@ -32,6 +32,7 @@ module.exports = ({ production = false, browser = false } = {}) => {
         importLoaders: 1
       }
     },
+    'sass-loader',
   ]);
 
   const createBrowserLoaders = extractCssToFile => loaders => {
@@ -48,7 +49,7 @@ module.exports = ({ production = false, browser = false } = {}) => {
   const browserLoaders = createBrowserLoaders(production)(createCssLoaders(true));
 
   return {
-    test: /\.css$/,
+    test: /\.(css|scss)$/,
     use: browser ? browserLoaders : serverLoaders,
     include: PATHS.app
   };

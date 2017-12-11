@@ -17,7 +17,7 @@ export default (app) => {
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-  app.use(express.static(path.join(process.cwd(), 'public')));
+  app.use('/assets/', express.static(path.join(process.cwd(), 'build', 'client')));
 
   console.log('--------------------------');
   console.log('===> 😊  Starting Server . . .');

@@ -10,7 +10,8 @@ const CURRENT_WORKING_DIR = process.cwd();
 module.exports = {
   app: path.resolve(CURRENT_WORKING_DIR, 'app'),
   assets: path.resolve(CURRENT_WORKING_DIR, 'public', 'assets'),
-  build: path.resolve(CURRENT_WORKING_DIR, 'build'),
-  public: '/public/assets/', // use absolute path for css-loader?
+  build_server: path.resolve(CURRENT_WORKING_DIR, 'build', 'server'),
+  build_client: path.resolve(CURRENT_WORKING_DIR, 'build', 'client'),
+  public: '/assets/', // use absolute path for css-loader?
   modules: path.resolve(CURRENT_WORKING_DIR, 'node_modules')
 };

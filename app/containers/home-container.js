@@ -10,6 +10,9 @@ class HomeContainer extends Component {
         <p> Hey awesomer site</p>
         <p> uber awesome</p>
         <p> Extra awesome</p>
+        <p> Super awesome</p>
+        <p> Super awesome</p>
+        <p> Super awesome</p>
       </div>
     );
   }

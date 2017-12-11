@@ -23,7 +23,7 @@ module.exports = (env = {}) => {
     },
     node,
     output: {
-      path: PATHS.assets,
+      path: PATHS.build_client,
       filename: '[name].js',
       publicPath: PATHS.public,
       chunkFilename: '[id].chunk.js',
@@ -42,7 +42,7 @@ module.exports = (env = {}) => {
     },
     node,
     output: {
-      path: PATHS.assets,
+      path: PATHS.build_client,
       filename: '[name].js',
       publicPath: PATHS.public
     },
@@ -62,7 +62,7 @@ module.exports = (env = {}) => {
     externals: [nodeExternals()],
     node,
     output: {
-      path: PATHS.build,
+      path: PATHS.build_server,
       filename: '[name].js',
     },
     module: { rules: rules({ production: true, browser: false }) },
@@ -79,7 +79,7 @@ module.exports = (env = {}) => {
     node,
     externals,
     output: {
-      path: PATHS.build,
+      path: PATHS.build_server,
       filename: '[name].dev.js',
       publicPath: PATHS.public,
     },

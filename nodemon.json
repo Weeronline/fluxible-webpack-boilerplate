@@ -6,5 +6,5 @@
     "server",
     "webpack"
   ],
-  "exec": "npm run build:dev && node build/server.dev.js"
+  "exec": "npm run build:dev && node build/server/server.dev.js"
 }

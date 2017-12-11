@@ -6,6 +6,8 @@ import { provideContext, connectToStores } from "fluxible-addons-react";
 
 import Nav from '../components/Nav';
 
+import styles from '../assets/styles/main.css';
+
 // Wrap Root with the fluxible context.
 @provideContext
 
@@ -62,7 +64,7 @@ export default class Main extends Component {
     }
 
     return (
-      <div>
+      <div className={styles.app}>
         <Helmet title={this.props.pageTitle} />
         <Nav currentRoute={currentRoute} />
         {content}
