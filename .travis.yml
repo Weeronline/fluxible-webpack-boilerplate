@@ -4,7 +4,7 @@ node_js:
 cache: yarn
 env:
   - NODE_ENV=production
-before_install:
+before_script:
   yarn install
 script:
   yarn build
