@@ -5,7 +5,7 @@
 
 Universal fluxible webpack app boilerplate project
 
-[dep-status-img]: https://david-dm.org/choonkending/react-webpack-node.svg
-[dep-status-link]: https://david-dm.org/choonkending/react-webpack-node
-[dev-dep-status-img]: https://david-dm.org/choonkending/react-webpack-node/dev-status.svg
-[dev-dep-status-link]: https://david-dm.org/choonkending/react-webpack-node#info=devDependencies
+[dep-status-img]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate.svg
+[dep-status-link]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate
+[dev-dep-status-img]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate/dev-status.svg
+[dev-dep-status-link]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate#info=devDependencies
