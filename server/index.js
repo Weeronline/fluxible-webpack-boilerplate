@@ -40,13 +40,7 @@ initExpress(server);
 
 const FetchrPlugin = app.getPlugin('FetchrPlugin');
 
-server.use(FetchrPlugin.getXhrPath(), FetchrPlugin.getMiddleware({
-  responseFormatter(req, res, data) { // eslint-disable-line
-    // send Cache-Control when service is called from the client
-    //res.set('Cache-Control', req.wolExpires.generateCacheControl());
-    return data;
-  }
-}));
+server.use(FetchrPlugin.getXhrPath(), FetchrPlugin.getMiddleware());
 
 server.use((req, res, next) => {
   const context = app.createContext({ req, res });
