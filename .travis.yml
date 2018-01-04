@@ -3,5 +3,9 @@ node_js:
   - "8"
 env:
   - NODE_ENV=production
+before_install:
+  - npm i -g yarn
+install:
+  - yarn
 script:
-  yarn build
+  - yarn build
