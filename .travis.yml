@@ -4,4 +4,4 @@ node_js:
 env:
   - NODE_ENV=production
 script:
-  npm run build
+  yarn build
