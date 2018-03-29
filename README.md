@@ -27,3 +27,9 @@ Universal fluxible webpack app boilerplate project
 License
 ===============
 MIT
+=======
+[dep-status-img]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate.svg
+[dep-status-link]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate
+[dev-dep-status-img]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate/dev-status.svg
+[dev-dep-status-link]: https://david-dm.org/Weeronline/fluxible-webpack-boilerplate#info=devDependencies
+
