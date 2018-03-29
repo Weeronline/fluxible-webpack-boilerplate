@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
+import Layout from '../Layout';
+
 class HomeContainer extends Component {
   render () {
     return (
-      <div id="home-container">
+      <Layout>
         <h2>Home</h2>
-        <p>Welcome to React-Fluxible boilerplate!</p>
-      </div>
+        <p>Welcome to Your App!</p>
+      </Layout>
     );
   }
 }
 
 export default HomeContainer;
+  

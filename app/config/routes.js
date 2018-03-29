@@ -1,5 +1,5 @@
 import loadHome from '../actions/load-home';
-import HomeContainer from '../containers/home-container';
+import HomeContainer from '../containers/Home';
 
 export default {
   index: {
@@ -8,6 +8,5 @@ export default {
     handler: HomeContainer,
     page: 'home',
     title: 'Home',
-//    action: loadHome,
   }
 }

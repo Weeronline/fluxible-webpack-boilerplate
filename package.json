@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node build/server/server.js",
+    "start:compose": "docker-compose up --build",
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "npm run clean && cross-env NODE_ENV=production npm run webpack -- --env.browser && cross-env NODE_ENV=production npm run webpack -- --env.server",
     "build:dev": "cross-env NODE_ENV=development npm run webpack -- --env.server",
