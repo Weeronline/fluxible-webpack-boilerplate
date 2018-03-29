@@ -1,0 +1,16 @@
+.header {
+  background-color: #0282eb;
+  overflow: auto;
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  color: #FFF;
+  font-size: 0.9375rem;
+  font-weight: bold;
+  line-height: 1.07;
+  padding: 0 1rem;
+
+  h1 {
+    color: white;
+  }
+}

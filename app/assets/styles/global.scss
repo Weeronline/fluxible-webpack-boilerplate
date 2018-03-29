@@ -1,0 +1,43 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  font-family: var(--fontMontserrat);
+  line-height: 1.714285;
+}
+
+#root {
+  overflow: hidden;
+}
+
+ul, ul li {
+  list-style: none;
+  line-height: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: black;
+}
+
+button {
+  color: inherit;
+  font: inherit;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  text-align: inherit;
+  outline: none;
+}
