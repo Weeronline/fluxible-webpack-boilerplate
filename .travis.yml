@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - "8"
-env:
-  - NODE_ENV=production
+before_install:
+  - npm i -g yarn
 install:
-  npm install
+  - yarn
 script:
-  npm run build
+  - yarn build
