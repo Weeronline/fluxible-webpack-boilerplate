@@ -13,7 +13,7 @@ Universal fluxible webpack app boilerplate project
 
 ## Features
 - ~~isomorphic~~ [**universal**](https://medium.com/@ghengeveld/isomorphism-vs-universal-javascript-4b47fb481beb#.4x2t3jlmx) Rendering
-- [**Fluxible**](https://http://fluxible.io/) isomorphic Flux applications framework
+- [**Fluxible**](https://http://fluxible.io/) built with Fluxible
 - Asynchronous Data Fetching on server-side rendering
 - Hot reloading using [**react-transform-hmr**](https://github.com/gaearon/react-transform-hmr)
 - [**Webpack 3**](https://github.com/webpack/webpack) for both development and production bundles.
