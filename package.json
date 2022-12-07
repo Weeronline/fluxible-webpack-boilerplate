@@ -20,7 +20,7 @@
     "body-parser": "^1.18.2",
     "compression": "^1.7.1",
     "debug": "^3.1.0",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "fluxible": "^1.4.0",
     "fluxible-addons-react": "^0.2.14",
     "fluxible-plugin-fetchr": "^0.3.11",
